@@ -24,8 +24,8 @@ public class OrderService {
             addSingleOrder(order, c, ps, userKey);
             int orderKey = getOrderKey(s, rs);
             addLineItems(cart, c, orderKey);
-            c.commit();
             order.setOrderKeyFrom(orderKey);
+            c.commit();
         } catch (SQLException sqlx) {
             s = c.createStatement();
             c.rollback();
